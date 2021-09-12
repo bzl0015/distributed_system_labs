@@ -230,8 +230,12 @@ func (c *Coordinator) transit() {
 	}
 }
 
-
-
+func (c *Coordinator) Done() bool {
+	c.lock.Lock()
+	defer c.lock.Unlock()
+	return c.stage = ""
+}
+/*
 //
 // main/mrcoordinator.go calls Done() periodically to find out
 // if the entire job has finished.
@@ -259,3 +263,4 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c.server()
 	return &c
 }
+*/
