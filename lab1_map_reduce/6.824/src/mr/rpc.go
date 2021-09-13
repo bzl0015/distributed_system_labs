@@ -27,25 +27,25 @@ type ExampleReply struct {
 // Add your RPC definitions here.
 
 type Task struct {
-	Type		string
-	Index		int
+	Type			string
+	Index			int
 	MapInputFile	string
-	WorkerID	string
-	Deadline	time.Time
+	WorkerID		string
+	DeadLine		time.Time
 }
 
 type ApplyForTaskArgs struct {
-	workerID	string
+	WorkerID		string
 	LastTaskType	string
 	LastTaskIndex	int
 }
 
 type ApplyForTaskReply struct {
-	TaskType	string
-	TaskIndex	int
+	TaskType		string
+	TaskIndex		int
 	MapInputFile	string
-	MapNum		int
-	ReduceNum	int
+	MapNum			int
+	ReduceNum		int
 }
 
 func tmpMapOutFile(worker string, mapIndex int, reduceIndex int) string {
